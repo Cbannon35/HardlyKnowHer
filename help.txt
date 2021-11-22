@@ -1,0 +1,5 @@
+~ To access commands!
+
+~on: The bot will respond to messages
+~off: The bot will no longer respond to messages
+~help: Brings up this menu
