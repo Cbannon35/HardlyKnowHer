@@ -29,13 +29,16 @@ async def on_message(message):
   2. Creates a state file if the bot is new and sends init message
   3. Reads user messages and determines if it warrants a response
   """
+  # Grab state file
   state_file_path = 'states/' + str(message.guild.id) + '.txt'
+  # Create the state file if it does not exist
   if not exists(state_file_path):
     f = open(state_file_path,"w+").write(str(1))
-    await message.channel.send('Use \"~help\"" to view commands!')
+    await message.channel.send('Use \"~help\" to view commands!')
 
   with open(state_file_path) as f:
     state = f.readlines()
+  # Read state file: either 1 or 0 --> on or off
   on = int(state[0])
   # The bot itself cannot trigger a response from itself
   if message.author == client.user:
